@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
                 const expiration = decodedToken.exp;
                 if (expiration < Date.now() / 1000.0) {
                     const newTokenIssue = await API.post(
-                        ENDPOINTS.NEW_REFRESH_TOKEN,
+                        ENDPOINTS.NEW_REFRESH_TOKEN.route,
                         {
                             refresh: refreshToken,
                         }
