@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1e2022;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,10 +17,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 a {
   font-weight: 500;
-  color: #646cff;
   text-decoration: inherit;
+}
+
+.active {
+  color: rgb(238, 49, 16);
 }
 
 a:hover {

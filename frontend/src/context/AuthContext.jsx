@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
             try {
                 const decodedToken = jwtDecode(accessToken);
                 const expiration = decodedToken.exp;
-                if (expiration < Date.now() / 1000.0) {
+                if (expiration && expiration < Date.now() / 1000.0) {
                     const newTokenIssue = await API.post(
                         ENDPOINTS.NEW_REFRESH_TOKEN.route,
                         {
@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ authenticated }}>
+        <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
             {children}
         </AuthContext.Provider>
     );

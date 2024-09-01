@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API } from "../api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import { useAuth } from "../context/AuthContext";
 
 export default function CommonForm({ route, action }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { setAuthenticated } = useAuth();
 
     const handleSubmit = async (e) => {
         setLoading(true);
@@ -15,11 +17,15 @@ export default function CommonForm({ route, action }) {
 
         try {
             const response = await API.post(route, { username, password });
+            console.log(action, response.status);
             if (action === "login" && response.status === 200) {
                 const { access, refresh } = response.data;
                 localStorage.setItem(ACCESS_TOKEN, access);
                 localStorage.setItem(REFRESH_TOKEN, refresh);
+                setAuthenticated(true);
                 navigate("/");
+            } else if (action === "register" && response.status === 200) {
+                navigate("/login");
             }
         } catch (error) {
             console.error(error);

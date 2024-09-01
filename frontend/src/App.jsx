@@ -5,6 +5,7 @@ import Header from "./component/Header";
 import { ProtectedRoute } from "./component/ProtectedRoute";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
+import Register from "./pages/Register";
 
 function App() {
     return (
@@ -24,6 +25,11 @@ function App() {
                         element={<Login />}
                         path='/login'
                     />
+                    <Route
+                        element={<Register />}
+                        path='/register'
+                    />
+                    {/* <Route  /> */}
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
