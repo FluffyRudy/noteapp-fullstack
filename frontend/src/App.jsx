@@ -6,6 +6,7 @@ import { ProtectedRoute } from "./component/ProtectedRoute";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import Register from "./pages/Register";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
     return (
@@ -29,7 +30,10 @@ function App() {
                         element={<Register />}
                         path='/register'
                     />
-                    {/* <Route  /> */}
+                    <Route
+                        element={<NotFound />}
+                        path='*'
+                    />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

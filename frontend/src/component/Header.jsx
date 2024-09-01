@@ -22,7 +22,7 @@ export default function Header() {
     return (
         <header>
             <nav>
-                <ul className='flex justify-between items-center capitalize'>
+                <ul className='flex justify-between items-center capitalize sticky top-0'>
                     {navLinks.map((navItem) => {
                         return navItem.condition ? (
                             <li
