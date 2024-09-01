@@ -13,7 +13,7 @@ class Home(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
-        return Response({"tokens": f"Hello {request.user.username.capitalize()}"})
+        return Response({"message": f"{request.user.username.capitalize()}"})
 
 
 class NotesList(generics.ListAPIView):
