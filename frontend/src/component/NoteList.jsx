@@ -48,6 +48,19 @@ export function NoteList() {
         }
     };
 
+    const handleDelete = async (e, note_id) => {
+        try {
+            const response = await API.delete(
+                `${ENDPOINTS.NOTE_DELETE.route}${note_id}/`
+            );
+            if (response.status === 204) {
+                fetchNotes();
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <div className='container mx-auto py-8'>
             <h2 className='text-3xl font-bold mb-6'>Notes</h2>
@@ -65,11 +78,20 @@ export function NoteList() {
                                 {note.title}
                             </h3>
                             <p className='mb-4 text-gray-200'>{note.content}</p>
-                            <Link
-                                to={`/note/${note.id}`}
-                                className='text-blue-300 hover:text-blue-700 transition-colors duration-300'>
-                                View Note
-                            </Link>
+                            <div className='flex justify-between'>
+                                <button className='bg-blue-500'>
+                                    <Link
+                                        to={`/note/${note.id}`}
+                                        className='text-blue-100 hover:text-blue-700 transition-colors duration-300 '>
+                                        View Note
+                                    </Link>
+                                </button>
+                                <button
+                                    className='bg-red-500 text-gray-500'
+                                    onClick={(e) => handleDelete(e, note.id)}>
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     ))
                 )}

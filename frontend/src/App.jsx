@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
 import NoteDetailUpdate from "./pages/NoteDetailUpdate";
 import Register from "./pages/Register";
+import CreateNote from "./pages/CreateNote";
 
 function App() {
     return (
@@ -29,7 +30,15 @@ function App() {
                                 <NoteDetailUpdate />
                             </ProtectedRoute>
                         }
-                        path='note/:noteID'
+                        path='/note/:noteID'
+                    />
+                    <Route
+                        element={
+                            <ProtectedRoute>
+                                <CreateNote />
+                            </ProtectedRoute>
+                        }
+                        path='/note/create'
                     />
                     <Route
                         element={<Login />}

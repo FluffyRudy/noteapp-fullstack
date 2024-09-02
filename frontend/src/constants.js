@@ -9,6 +9,8 @@ const ENDPOINTS = {
     },
     HOME: { name: "home", route: "/" },
     NOTE_LIST: { name: "note_list", route: "/api/notes/" },
+    NOTE_CREATE: { name: "note_create", route: "/api/notes/create/" },
+    NOTE_DELETE: { name: "note_delete", route: "api/notes/delete/" },
 };
 
 export { ACCESS_TOKEN, ENDPOINTS, REFRESH_TOKEN };

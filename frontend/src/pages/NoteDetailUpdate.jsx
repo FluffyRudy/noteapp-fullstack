@@ -43,11 +43,15 @@ export default function NoteDetailUpdate() {
 
     useEffect(() => {
         const fetchNote = async () => {
-            const noteResponse = await API.get(
-                `${ENDPOINTS.NOTE_LIST.route}${noteID}`
-            );
-            const { title, content, id } = noteResponse.data;
-            setNote({ title, content, id });
+            try {
+                const noteResponse = await API.get(
+                    `${ENDPOINTS.NOTE_LIST.route}${noteID}`
+                );
+                const { title, content, id } = noteResponse.data;
+                setNote({ title, content, id });
+            } catch (error) {
+                console.error(error);
+            }
         };
         fetchNote();
     }, [noteID]);
