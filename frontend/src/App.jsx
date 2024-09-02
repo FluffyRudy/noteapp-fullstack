@@ -9,8 +9,12 @@ import { NotFound } from "./pages/NotFound";
 import NoteDetailUpdate from "./pages/NoteDetailUpdate";
 import Register from "./pages/Register";
 import CreateNote from "./pages/CreateNote";
+import { useEffect } from "react";
 
 function App() {
+    useEffect(() => {
+        document.title = "NoteApp";
+    }, []);
     return (
         <AuthProvider>
             <BrowserRouter>
