@@ -22,7 +22,7 @@ export default function Home() {
     return (
         <>
             <div>
-                <h1 className='text-2xl font-bold text-gray-900 mb-4  w-full text-center'>
+                <h1 className='text-2xl font-bold  mb-4  w-full text-center text-white'>
                     Welcome, <span className='text-red-600'>{username}!</span>
                 </h1>
             </div>
