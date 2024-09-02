@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import Register from "./pages/Register";
 import { NotFound } from "./pages/NotFound";
+import NoteDetailUpdate from "./pages/NoteDetailUpdate";
 
 function App() {
     return (
@@ -21,6 +22,14 @@ function App() {
                             </ProtectedRoute>
                         }
                         path='/'
+                    />
+                    <Route
+                        element={
+                            <ProtectedRoute>
+                                <NoteDetailUpdate />
+                            </ProtectedRoute>
+                        }
+                        path='note/:noteID'
                     />
                     <Route
                         element={<Login />}

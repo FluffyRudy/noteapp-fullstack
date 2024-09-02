@@ -60,14 +60,14 @@ export function NoteList() {
                     notes.map((note) => (
                         <div
                             key={note.id}
-                            className='bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center'>
-                            <h3 className='text-xl font-bold text-gray-900 mb-2'>
+                            className='p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 text-center'>
+                            <h3 className='text-xl font-bold  mb-2 text-gray-300'>
                                 {note.title}
                             </h3>
-                            <p className='text-gray-600 mb-4'>{note.content}</p>
+                            <p className='mb-4 text-gray-200'>{note.content}</p>
                             <Link
-                                to={`/notes/${note.id}`}
-                                className='text-blue-500 hover:text-blue-700 transition-colors duration-300'>
+                                to={`/note/${note.id}`}
+                                className='text-blue-300 hover:text-blue-700 transition-colors duration-300'>
                                 View Note
                             </Link>
                         </div>
@@ -77,12 +77,12 @@ export function NoteList() {
             <div className='flex justify-around mt-8'>
                 <button
                     onClick={handlePreviousPage}
-                    className='bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
+                    className=' px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
                     Previous
                 </button>
                 <button
                     onClick={handleNextPage}
-                    className='bg-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
+                    className=' px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
                     Next
                 </button>
             </div>
