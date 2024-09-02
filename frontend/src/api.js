@@ -31,6 +31,13 @@ API.interceptors.response.use(
             originalRequest._retry = true;
             const refreshToken = localStorage.getItem(REFRESH_TOKEN);
 
+            if (!refreshToken) {
+                console.error(
+                    "No refresh token available. Please log in again."
+                );
+                return Promise.reject(error);
+            }
+
             try {
                 const response = await API.post(
                     ENDPOINTS.NEW_REFRESH_TOKEN.route,
