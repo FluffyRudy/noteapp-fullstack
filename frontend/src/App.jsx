@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
 import Header from "./component/Header";
 import { ProtectedRoute } from "./component/ProtectedRoute";
-import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
-import Register from "./pages/Register";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
 import NoteDetailUpdate from "./pages/NoteDetailUpdate";
+import Register from "./pages/Register";
 
 function App() {
     return (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { API } from "../api";
 import { ENDPOINTS } from "../constants";
-import { Link } from "react-router-dom";
 
 export function NoteList() {
     const [notes, setNotes] = useState([]);
@@ -74,18 +74,20 @@ export function NoteList() {
                     ))
                 )}
             </div>
-            <div className='flex justify-around mt-8'>
-                <button
-                    onClick={handlePreviousPage}
-                    className=' px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
-                    Previous
-                </button>
-                <button
-                    onClick={handleNextPage}
-                    className=' px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
-                    Next
-                </button>
-            </div>
+            {notes.length > 0 ? (
+                <div className='flex justify-around mt-8'>
+                    <button
+                        onClick={handlePreviousPage}
+                        className=' px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
+                        Previous
+                    </button>
+                    <button
+                        onClick={handleNextPage}
+                        className=' px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300'>
+                        Next
+                    </button>
+                </div>
+            ) : null}
         </div>
     );
 }

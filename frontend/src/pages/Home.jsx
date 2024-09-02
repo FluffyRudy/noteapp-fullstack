@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API } from "../api";
-import { ENDPOINTS } from "../constants";
 import { NoteList } from "../component/NoteList";
+import { ENDPOINTS } from "../constants";
 
 export default function Home() {
     const [username, setUsername] = useState("User");

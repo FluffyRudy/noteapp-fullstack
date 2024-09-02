@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
     const { authenticated, setAuthenticated } = useAuth();
@@ -16,17 +16,20 @@ export default function Header() {
         localStorage.removeItem(ACCESS_TOKEN);
         localStorage.removeItem(REFRESH_TOKEN);
         setAuthenticated(false);
-        navigate("/");
+        navigate("/login");
     };
 
     return (
         <header>
             <nav>
-                <ul className='flex justify-between items-center capitalize sticky top-0'>
+                <ul
+                    className={`${
+                        authenticated ? "justify-between" : "justify-center"
+                    } flex  items-center capitalize sticky top-0`}>
                     {navLinks.map((navItem) => {
                         return navItem.condition ? (
                             <li
-                                className='mx-2'
+                                className='mx-2 font-bold text-2xl'
                                 key={navItem.label}>
                                 <NavLink to={navItem.route}>
                                     {navItem.label}
