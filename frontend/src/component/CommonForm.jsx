@@ -29,9 +29,9 @@ export default function CommonForm({ route, action }) {
             }
         } catch (error) {
             if (action === "register") {
-                const userExistError = error?.response?.data?.username[0];
-                if (userExistError) {
-                    setErrorMsg(userExistError);
+                const userExistErrorMsg = error?.response?.data?.username[0];
+                if (userExistErrorMsg) {
+                    setErrorMsg(userExistErrorMsg);
                 } else {
                     setErrorMsg(error.message);
                 }
