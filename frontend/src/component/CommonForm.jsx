@@ -28,9 +28,16 @@ export default function CommonForm({ route, action }) {
                 navigate("/login");
             }
         } catch (error) {
-            const userExistError = error?.response?.data?.username[0];
-            if (userExistError) setErrorMsg(userExistError);
-            else setErrorMsg(error.message);
+            if (action === "register") {
+                const userExistError = error?.response?.data?.username[0];
+                if (userExistError) {
+                    setErrorMsg(userExistError);
+                } else {
+                    setErrorMsg(error.message);
+                }
+            } else {
+                setErrorMsg(error.message);
+            }
         } finally {
             setLoading(false);
         }
