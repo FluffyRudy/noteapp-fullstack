@@ -14,7 +14,7 @@ API.interceptors.request.use(
         return config;
     },
     (error) => {
-        Promise.reject(error);
+        return Promise.reject(error);
     }
 );
 
@@ -23,7 +23,11 @@ API.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
 
-        if (error.response.status === 401 && !originalRequest._retry) {
+        if (
+            error.response &&
+            error.response.status === 401 &&
+            !originalRequest._retry
+        ) {
             originalRequest._retry = true;
             const refreshToken = localStorage.getItem(REFRESH_TOKEN);
 
