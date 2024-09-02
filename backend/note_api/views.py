@@ -32,7 +32,7 @@ class NoteCreate(generics.CreateAPIView):
         serializer.save(author=self.request.user)
 
 
-class NoteDetail(generics.RetrieveAPIView):
+class NoteDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     serializer_class = NoteSerializer
 
