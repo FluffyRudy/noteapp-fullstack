@@ -11,4 +11,4 @@ const ENDPOINTS = {
     NOTE_LIST: { name: "note_list", route: "/api/notes/" },
 };
 
-export { ACCESS_TOKEN, REFRESH_TOKEN, ENDPOINTS };
+export { ACCESS_TOKEN, ENDPOINTS, REFRESH_TOKEN };
